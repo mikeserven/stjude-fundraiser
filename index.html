@@ -98,6 +98,9 @@
   }
   .photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
 
+  .avenue.large-photo { grid-template-columns: 260px 1fr; }
+  .avenue.large-photo .photo { width: 260px; height: 260px; }
+
   .avenue h2 { margin: 0 0 6px; font-size: 21px; }
   .avenue .blurb { margin: 0 0 10px; color: #333; }
   .avenue .todo {
@@ -151,6 +154,7 @@
   @media (max-width: 520px) {
     .avenue { grid-template-columns: 1fr; }
     .photo { width: 100%; height: 160px; }
+    .avenue.large-photo .photo { width: 100%; height: 260px; }
   }
 </style>
 </head>
@@ -165,7 +169,7 @@
     <section class="avenues">
       <p class="section-label">Who's raising funds</p>
 
-      <div class="avenue" id="family" data-ref="family">
+      <div class="avenue large-photo" id="family" data-ref="family">
         <div style="grid-column: 1 / -1;">
           <p class="eyebrow" style="margin-bottom: 8px;">Rock 'n' Roll Arizona Half Marathon · Jan 17, 2027</p>
         </div>
