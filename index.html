@@ -117,6 +117,32 @@
   .avenue.large-photo { grid-template-columns: 260px 1fr; }
   .avenue.large-photo .photo { width: 260px; height: 260px; }
 
+  .avenue.portrait-photo { grid-template-columns: 200px 1fr; }
+  .avenue.portrait-photo .photo {
+    width: 200px;
+    height: auto;
+    aspect-ratio: 1024 / 1536;
+    background: #111;
+  }
+  .avenue.portrait-photo .photo img { object-fit: contain; }
+
+  .avenue-extra-graphic {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .avenue-extra-graphic img {
+    max-width: 320px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  }
+  .avenue-extra-graphic p.caption {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 8px 0 0;
+  }
+
   .avenue h2 { margin: 0 0 6px; font-size: 21px; }
   .avenue .blurb { margin: 0 0 10px; color: #333; }
   .avenue .todo {
@@ -177,6 +203,8 @@
     .avenue, .avenue.large-photo { grid-template-columns: 1fr; }
     .photo { width: 100%; height: 160px; }
     .avenue.large-photo .photo { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+    .avenue.portrait-photo { grid-template-columns: 1fr; }
+    .avenue.portrait-photo .photo { width: 100%; height: auto; aspect-ratio: 1024 / 1536; }
     header.hero { padding: 40px 0 28px; }
     .avenues { padding: 32px 0; }
     .hero p.sub { font-size: 16px; }
@@ -215,7 +243,6 @@
           <p class="eyebrow" style="margin-bottom: 8px;">Time to Reap for a Reason</p>
         </div>
         <div class="photo">
-          <!-- TODO: replace with <img src="reapers-photo.jpg" alt="Reapers hockey team"> -->
           Photo coming soon
         </div>
         <div>
@@ -223,6 +250,13 @@
           <p class="blurb">A team named after death raising money to fight it. This season, the Reapers' team fee goes straight to St. Jude instead of the usual costs. Creative in-game fundraising (penalties, goals, and a few inside jokes) keeps the mission alive all year. The Reaper stands for cancer — and these kids are slaying it.</p>
           <p class="members">Reapers adult league ice hockey team</p>
           <a class="button small" href="http://fundraising.stjude.org/goto/Serven">Donate to St. Jude</a>
+        </div>
+        <div class="avenue-extra-graphic">
+          <img src="reapers-poster.png" alt="The Reapers Men's League Hockey Team teaming up with St. Jude Children's Research Hospital">
+        </div>
+        <div class="avenue-extra-graphic">
+          <img src="reapers-giving-back-challenge.png" alt="Reapers Giving Back Challenge donation rules">
+          <p class="caption">The Reapers Giving Back Challenge — how in-game moments turn into donations.</p>
         </div>
       </div>
 
