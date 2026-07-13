@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running for St. Jude — Rock 'n' Roll Arizona</title>
+<style>
+  :root {
+    --ink: #1c1c1c;
+    --paper: #fafaf9;
+    --line: #e2e0dc;
+    --muted: #6b6a66;
+    --accent: #2f5d50;
+    --accent-soft: #e8efec;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero {
+    border-bottom: 1px solid var(--line);
+    padding: 64px 0 40px;
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 12px;
+  }
+  h1 {
+    font-size: clamp(30px, 5vw, 44px);
+    margin: 0 0 16px;
+    line-height: 1.1;
+  }
+  .hero p.sub {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 56ch;
+    margin: 0;
+  }
+
+  .avenues { padding: 48px 0; }
+  .section-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 24px;
+  }
+
+  .avenue {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .avenue:last-child { border-bottom: none; }
+
+  .photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    text-align: center;
+    padding: 8px;
+    font-weight: 600;
+    overflow: hidden;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+
+  .avenue h2 { margin: 0 0 6px; font-size: 21px; }
+  .avenue .blurb { margin: 0 0 10px; color: #333; }
+  .avenue .todo {
+    display: inline-block;
+    font-size: 12px;
+    color: #9a6b00;
+    background: #fff3d6;
+    border: 1px solid #f0dca6;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-bottom: 10px;
+  }
+  .avenue .members {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .avenue.pending {
+    color: var(--muted);
+    font-style: italic;
+    grid-template-columns: 1fr;
+    padding: 20px 0;
+  }
+
+  .cta {
+    padding: 40px 0 64px;
+    text-align: center;
+  }
+  .cta p { color: var(--muted); margin: 0 0 20px; }
+  .cta a.button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  .cta a.button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 24px 0 48px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+  }
+
+  @media (max-width: 520px) {
+    .avenue { grid-template-columns: 1fr; }
+    .photo { width: 100%; height: 160px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="hero">
+      <p class="eyebrow">Rock 'n' Roll Arizona Half Marathon · Jan 17, 2027</p>
+      <h1>Running for St. Jude</h1>
+      <p class="sub">We're racing the Rock 'n' Roll Arizona Half Marathon as St. Jude Heroes. Every avenue below is chasing the same finish line — for kids who need St. Jude the most.</p>
+    </header>
+
+    <section class="avenues">
+      <p class="section-label">Who's running</p>
+
+      <div class="avenue" id="family" data-ref="family">
+        <div class="photo">
+          <!-- TODO: replace with <img src="family-photo.jpg" alt="Serven's family"> -->
+          Family photo coming soon
+        </div>
+        <div>
+          <h2>The Family Team</h2>
+          <span class="todo">TODO: add blurb</span>
+          <p class="blurb">[Add a sentence or two here on why the family is running / your connection to St. Jude.]</p>
+          <p class="members">Serven · his girlfriend · her two kids</p>
+        </div>
+      </div>
+
+      <div class="avenue" id="hockey" data-ref="hockey">
+        <div class="photo">
+          <!-- TODO: replace with <img src="reapers-photo.jpg" alt="Reapers hockey team"> -->
+          Team photo coming soon
+        </div>
+        <div>
+          <h2>Team Reapers</h2>
+          <span class="todo">TODO: add blurb</span>
+          <p class="blurb">[Add a sentence or two here on why the Reapers are raising money / connection to St. Jude.]</p>
+          <p class="members">Reapers recreational hockey team</p>
+        </div>
+      </div>
+
+      <div class="avenue pending">
+        + a third avenue is on the way — check back soon.
+      </div>
+    </section>
+
+    <section class="cta">
+      <p>Every dollar raised goes straight to St. Jude Children's Research Hospital.</p>
+      <!-- TODO: replace # with the real St. Jude Heroes donation link -->
+      <a class="button" href="#" id="donate-link">Donate to St. Jude</a>
+    </section>
+
+    <footer>
+      Rock 'n' Roll Arizona Half Marathon · St. Jude Heroes · January 17, 2027
+    </footer>
+  </div>
+
+<script>
+  // Optional: if a short link appends ?ref=family or ?ref=hockey,
+  // scroll to and lightly highlight that avenue on load.
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get('ref');
+  if (ref) {
+    const target = document.querySelector(`[data-ref="${CSS.escape(ref)}"]`);
+    if (target) {
+      target.style.background = 'var(--accent-soft)';
+      target.style.borderRadius = '8px';
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+</script>
+
+</body>
+</html>
