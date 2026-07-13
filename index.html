@@ -14,20 +14,36 @@
     --accent-soft: #e8efec;
   }
   * { box-sizing: border-box; }
+  html {
+    background-image:
+      linear-gradient(rgba(20,20,18,0.45), rgba(20,20,18,0.45)),
+      url('https://images.unsplash.com/photo-1759433169410-b904d63514e0?auto=format&fit=crop&w=1920&q=60');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100%;
+  }
   body {
     margin: 0;
-    background: var(--paper);
+    background: transparent;
     color: var(--ink);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     line-height: 1.5;
   }
-  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+    background: var(--paper);
+    box-shadow: 0 0 60px rgba(0,0,0,0.05);
+  }
 
   header.hero {
     border-bottom: 1px solid var(--line);
     padding: 64px 0 40px;
   }
-  .eyebrow { 
+  .eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 13px;
@@ -142,15 +158,17 @@
 
   <div class="wrap">
     <header class="hero">
-      <p class="eyebrow">Rock 'n' Roll Arizona Half Marathon · Jan 17, 2027</p>
-      <h1>Running for St. Jude</h1>
-      <p class="sub">We're racing the Rock 'n' Roll Arizona Half Marathon as St. Jude Heroes. Every avenue below is chasing the same finish line — for kids who need St. Jude the most.</p>
+      <h1>Raising Money for St. Jude</h1>
+      <p class="sub">In support of the Rock 'n' Roll Arizona Half Marathon and St. Jude Heroes, a few different avenues are pitching in to raise money — for kids who need St. Jude the most.</p>
     </header>
 
     <section class="avenues">
-      <p class="section-label">Who's running</p>
+      <p class="section-label">Who's raising funds</p>
 
       <div class="avenue" id="family" data-ref="family">
+        <div style="grid-column: 1 / -1;">
+          <p class="eyebrow" style="margin-bottom: 8px;">Rock 'n' Roll Arizona Half Marathon · Jan 17, 2027</p>
+        </div>
         <div class="photo">
           <!-- TODO: replace with <img src="family-photo.jpg" alt="Serven's family"> -->
           Family photo coming soon
@@ -159,20 +177,22 @@
           <h2>The Family Team</h2>
           <span class="todo">TODO: add blurb</span>
           <p class="blurb">[Add a sentence or two here on why the family is running / your connection to St. Jude.]</p>
-          <p class="members">Serven · his girlfriend · her two kids</p>
+          <p class="members">Serven · Eunice · Dylan · Taylor</p>
         </div>
       </div>
 
       <div class="avenue" id="hockey" data-ref="hockey">
+        <div style="grid-column: 1 / -1;">
+          <p class="eyebrow" style="margin-bottom: 8px;">Time to Reap for a Reason</p>
+        </div>
         <div class="photo">
           <!-- TODO: replace with <img src="reapers-photo.jpg" alt="Reapers hockey team"> -->
           Team photo coming soon
         </div>
         <div>
           <h2>Team Reapers</h2>
-          <span class="todo">TODO: add blurb</span>
-          <p class="blurb">[Add a sentence or two here on why the Reapers are raising money / connection to St. Jude.]</p>
-          <p class="members">Reapers recreational hockey team</p>
+          <p class="blurb">This season, the team fee goes straight to St. Jude instead of the usual costs — plus creative in-game fundraising (penalties, goals, and a few inside jokes) throughout the year.</p>
+          <p class="members">Reapers adult league ice hockey team</p>
         </div>
       </div>
 
