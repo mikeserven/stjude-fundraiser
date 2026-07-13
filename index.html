@@ -16,20 +16,23 @@
 <meta name="twitter:title" content="Raising Money for St. Jude">
 <meta name="twitter:description" content="A few different avenues are raising money for St. Jude Children's Research Hospital — for kids who need St. Jude the most.">
 <meta name="twitter:image" content="https://mikeserven.github.io/stjude-fundraiser/home-team-collage.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #1c1c1c;
     --paper: #fafaf9;
     --line: #e2e0dc;
     --muted: #6b6a66;
-    --accent: #2f5d50;
-    --accent-soft: #e8efec;
+    --accent: #C10F3A;
+    --accent-soft: #fbe6ea;
+    --steel: #1b2a35;
+    --steel-mid: #5c7686;
   }
   * { box-sizing: border-box; }
   html, body { overflow-x: hidden; }
   html {
     background-image:
-      linear-gradient(rgba(20,20,18,0.45), rgba(20,20,18,0.45)),
+      linear-gradient(rgba(27,42,53,0.55), rgba(27,42,53,0.55)),
       url('https://images.unsplash.com/photo-1759433169410-b904d63514e0?auto=format&fit=crop&w=1920&q=60');
     background-size: cover;
     background-position: center;
@@ -63,13 +66,18 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 13px;
-    color: var(--muted);
+    color: var(--steel-mid);
+    font-weight: 700;
     margin: 0 0 12px;
   }
   h1 {
-    font-size: clamp(30px, 5vw, 44px);
+    font-family: 'Bebas Neue', -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: clamp(38px, 6vw, 56px);
     margin: 0 0 16px;
-    line-height: 1.1;
+    line-height: 1.05;
+    color: var(--steel);
   }
   .hero p.sub {
     color: var(--muted);
@@ -150,7 +158,75 @@
   }
   .avenue-graphics-row .avenue-extra-graphic { flex: 1 1 0; max-width: 320px; }
 
-  .avenue h2 { margin: 0 0 6px; font-size: 21px; }
+  .giving-back-challenge {
+    flex: 1 1 0;
+    max-width: 320px;
+    background: var(--steel);
+    color: #fff;
+    border-radius: 8px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    text-align: left;
+  }
+  .giving-back-challenge h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+    font-size: 20px;
+    margin: 0 0 14px;
+    color: #fff;
+  }
+  .giving-back-challenge .tier { margin-bottom: 14px; }
+  .giving-back-challenge .tier:last-child { margin-bottom: 0; }
+  .giving-back-challenge .tier-amount {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 14px;
+    margin: 0 0 6px;
+  }
+  .giving-back-challenge ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #e4e4e2;
+  }
+  .giving-back-challenge li { margin-bottom: 3px; }
+
+  .avenue h2 {
+    margin: 0 0 6px;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .bib-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 999px;
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .jersey-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+    background: var(--steel);
+    color: #fff;
+    border-radius: 6px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
   .avenue .blurb { margin: 0 0 10px; color: #333; }
   .avenue .todo {
     display: inline-block;
@@ -214,6 +290,7 @@
     .avenue.portrait-photo .photo { width: 100%; height: auto; aspect-ratio: 1024 / 1536; }
     .avenue-graphics-row { flex-direction: column; }
     .avenue-graphics-row .avenue-extra-graphic { max-width: 100%; }
+    .giving-back-challenge { max-width: 100%; }
     header.hero { padding: 40px 0 28px; }
     .avenues { padding: 32px 0; }
     .hero p.sub { font-size: 16px; }
@@ -240,7 +317,7 @@
           <img src="home-team-collage.jpg" alt="Serven, Eunice, Dylan, and Taylor">
         </div>
         <div>
-          <h2>The Home Team</h2>
+          <h2><span class="bib-tag">13.1</span> The Home Team</h2>
           <p class="blurb">It started with a deal: we run a half marathon together, we take on a cycling event together. That promise grew into something bigger — now we're all in for St. Jude.</p>
           <p class="members">Serven · Eunice · Dylan · Taylor</p>
           <a class="button small" href="http://fundraising.stjude.org/goto/Serven">Donate to St. Jude</a>
@@ -255,7 +332,7 @@
           Photo coming soon
         </div>
         <div>
-          <h2>Reapers Hockey</h2>
+          <h2><span class="jersey-tag">RH</span> Reapers Hockey</h2>
           <p class="blurb">A team named after death raising money to fight it. This season, the Reapers' team fee goes straight to St. Jude instead of the usual costs. Creative in-game fundraising (penalties, goals, and a few inside jokes) keeps the mission alive all year. The Reaper stands for cancer — and these kids are slaying it.</p>
           <p class="members">Reapers adult league ice hockey team</p>
           <a class="button small" href="http://fundraising.stjude.org/goto/Serven">Donate to St. Jude</a>
@@ -264,9 +341,51 @@
           <div class="avenue-extra-graphic">
             <img src="reapers-poster.png" alt="The Reapers Men's League Hockey Team teaming up with St. Jude Children's Research Hospital">
           </div>
-          <div class="avenue-extra-graphic">
-            <img src="reapers-giving-back-challenge.png" alt="Reapers Giving Back Challenge donation rules">
-            <p class="caption">The Reapers Giving Back Challenge — how in-game moments turn into donations.</p>
+          <div class="giving-back-challenge">
+            <h3>Reapers Giving Back Challenge</h3>
+            <div class="tier">
+              <p class="tier-amount">$5 Donations</p>
+              <ul>
+                <li>Missed wide-open scoring chance</li>
+                <li>Player falls on their own</li>
+                <li>Hits the post</li>
+                <li>Puck over the glass</li>
+                <li>Called for penalty</li>
+                <li>Scythe Award winner</li>
+              </ul>
+            </div>
+            <div class="tier">
+              <p class="tier-amount">$10 Donations</p>
+              <ul>
+                <li>Own goal</li>
+                <li>Missed game (excluding emergencies)</li>
+                <li>Lowest goal scorer on the season</li>
+                <li>Lowest assist total on the season</li>
+                <li>Lowest point total on the season</li>
+                <li>Most penalty minutes on the season</li>
+              </ul>
+            </div>
+            <div class="tier">
+              <p class="tier-amount">$25 Donations</p>
+              <ul>
+                <li>Don't attend "team chemistry building activity" — AKA bar after the game. (Gotta stay for at least 1!)</li>
+              </ul>
+            </div>
+            <div class="tier">
+              <p class="tier-amount">$50 Team Donations</p>
+              <ul>
+                <li>Lose a game</li>
+                <li>Challenge our opponents to donate if they lose to us</li>
+                <li>We get shutout</li>
+                <li>We get scored on 6+ goals</li>
+              </ul>
+            </div>
+            <div class="tier">
+              <p class="tier-amount">Fan Support</p>
+              <ul>
+                <li>Come support "your player" and match his game donation total!</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
