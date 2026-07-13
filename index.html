@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Running for St. Jude — Rock 'n' Roll Arizona</title>
+<title>Raising Money for St. Jude — Rock 'n' Roll Arizona</title>
+<meta name="description" content="A few different avenues — the Home Team and Team Reapers — are raising money for St. Jude Children's Research Hospital ahead of the Rock 'n' Roll Arizona Half Marathon.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Raising Money for St. Jude">
+<meta property="og:description" content="A few different avenues are raising money for St. Jude Children's Research Hospital — for kids who need St. Jude the most.">
+<meta property="og:image" content="https://mikeserven.github.io/stjude-fundraiser/home-team-collage.jpg">
+<meta property="og:url" content="https://mikeserven.github.io/stjude-fundraiser">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Raising Money for St. Jude">
+<meta name="twitter:description" content="A few different avenues are raising money for St. Jude Children's Research Hospital — for kids who need St. Jude the most.">
+<meta name="twitter:image" content="https://mikeserven.github.io/stjude-fundraiser/home-team-collage.jpg">
 <style>
   :root {
     --ink: #1c1c1c;
@@ -158,7 +170,7 @@
   @media (max-width: 520px) {
     .avenue, .avenue.large-photo { grid-template-columns: 1fr; }
     .photo { width: 100%; height: 160px; }
-    .avenue.large-photo .photo { width: 100%; height: 260px; }
+    .avenue.large-photo .photo { width: 100%; height: auto; aspect-ratio: 1 / 1; }
     header.hero { padding: 40px 0 28px; }
     .avenues { padding: 32px 0; }
     .hero p.sub { font-size: 16px; }
@@ -223,12 +235,17 @@
   </div>
 
 <script>
-  // Optional: if a short link appends ?ref=family or ?ref=hockey,
-  // scroll to and lightly highlight that avenue on load.
+  // If a short link appends ?ref=..., scroll to and lightly highlight
+  // the matching avenue on load. Individual names map to their avenue.
+  const refMap = {
+    family: 'family', serven: 'family', eunice: 'family', dylan: 'family', taylor: 'family',
+    hockey: 'hockey', reapers: 'hockey'
+  };
   const params = new URLSearchParams(window.location.search);
   const ref = params.get('ref');
-  if (ref) {
-    const target = document.querySelector(`[data-ref="${CSS.escape(ref)}"]`);
+  const sectionId = refMap[(ref || '').toLowerCase()];
+  if (sectionId) {
+    const target = document.getElementById(sectionId);
     if (target) {
       target.style.background = 'var(--accent-soft)';
       target.style.borderRadius = '8px';
