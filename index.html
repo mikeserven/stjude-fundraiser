@@ -362,7 +362,7 @@
   .eq-part { display: flex; flex-direction: column; }
   .eq-value {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
+    font-size: 36px;
     color: var(--steel);
     letter-spacing: 0.02em;
     line-height: 1;
@@ -376,10 +376,10 @@
   }
   .eq-op {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
+    font-size: 28px;
     color: var(--steel-mid);
   }
-  .eq-total .eq-value { color: var(--accent); font-size: 30px; }
+  .eq-total .eq-value { color: var(--accent); font-size: 42px; }
 
   .mile-tracker {
     grid-column: 1 / -1;
@@ -403,7 +403,7 @@
   }
   .mile-tracker-miles {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px;
+    font-size: 40px;
     color: var(--steel);
     letter-spacing: 0.02em;
   }
@@ -411,6 +411,44 @@
   .mile-tracker-detail {
     font-size: 13px;
     color: var(--muted);
+  }
+
+  .action-strip {
+    grid-column: 1 / -1;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+  }
+  .action-strip-label {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 12px;
+    color: var(--steel-mid);
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+  .action-photos {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .action-photo { width: 100px; text-align: center; }
+  .action-photo img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  .action-photo p {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 6px 0 0;
+  }
+  .action-strip-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 10px;
   }
 </style>
 </head>
@@ -445,6 +483,7 @@
       <div class="progress-track">
         <div class="progress-fill" id="progress-fill" style="width: 9.7%;"></div>
       </div>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px;">Mile-funded amounts are sent to St. Jude periodically and may not yet be reflected in their official total.</p>
       <a class="button" href="http://fundraising.stjude.org/goto/Serven" style="margin-top: 20px; display: inline-block;">Donate to St. Jude</a>
       <p style="font-size: 13px; color: var(--muted); margin-top: 10px;">Ask your employer if they match charitable donations — you could double your impact.</p>
     </section>
@@ -537,6 +576,24 @@
             <span class="mile-tracker-miles" id="mile-tracker-miles"><span>0</span> miles</span>
             <span class="mile-tracker-detail" id="mile-tracker-detail">Our training miles also matter. The Home Team is personally funding $0.25 for every mile we walk, run, and bike toward St. Jude.</span>
           </div>
+        </div>
+        <div class="action-strip">
+          <p class="action-strip-label">In motion</p>
+          <div class="action-photos">
+            <div class="action-photo">
+              <img src="taylor-running.jpg" alt="Taylor running">
+              <p>Taylor</p>
+            </div>
+            <div class="action-photo">
+              <img src="dylan-running.jpg" alt="Dylan running">
+              <p>Dylan</p>
+            </div>
+            <div class="action-photo">
+              <img src="dylan-climbing.jpg" alt="Dylan rock climbing">
+              <p>Dylan, climbing</p>
+            </div>
+          </div>
+          <p class="action-strip-note">Dylan's climbing miles aren't counted above — but the training counts too.</p>
         </div>
       </div>
     </section>
