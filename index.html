@@ -284,6 +284,25 @@
     text-align: center;
   }
 
+  .closing {
+    padding: 48px 0 8px;
+    text-align: center;
+  }
+  .closing p {
+    font-size: 18px;
+    color: var(--steel);
+    max-width: 46ch;
+    margin: 0 auto;
+  }
+  .closing .tagline {
+    display: block;
+    margin-top: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+  }
+
   @media (max-width: 520px) {
     .avenue, .avenue.large-photo { grid-template-columns: 1fr; }
     .photo { width: 100%; height: 160px; }
@@ -332,6 +351,67 @@
     background: var(--accent);
     border-radius: 999px;
   }
+
+  .equation-row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-bottom: 14px;
+  }
+  .eq-part { display: flex; flex-direction: column; }
+  .eq-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: var(--steel);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .eq-label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 3px;
+  }
+  .eq-op {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--steel-mid);
+  }
+  .eq-total .eq-value { color: var(--accent); font-size: 30px; }
+
+  .mile-tracker {
+    grid-column: 1 / -1;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+  }
+  .mile-tracker-label {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 12px;
+    color: var(--steel-mid);
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+  .mile-tracker-numbers {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .mile-tracker-miles {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    color: var(--steel);
+    letter-spacing: 0.02em;
+  }
+  .mile-tracker-miles span { color: var(--accent); }
+  .mile-tracker-detail {
+    font-size: 13px;
+    color: var(--muted);
+  }
 </style>
 </head>
 <body>
@@ -339,17 +419,33 @@
   <div class="wrap">
     <header class="hero">
       <h1>Raising Money for <span style="color: var(--accent);">St. Jude</span></h1>
-      <p class="sub">This January, a half marathon. All season, a hockey team. Same cause: St. Jude — for kids who need St. Jude the most.</p>
+      <p class="sub">This January, a half marathon. All season, a hockey team. Every mile logged. Same cause: St. Jude — for kids who need St. Jude the most.</p>
     </header>
 
-    <section class="progress-section">
+    <section class="progress-section" id="progress-section" data-donations="2425" data-goal="25000">
+      <div class="equation-row" id="equation-row">
+        <span class="eq-part">
+          <span class="eq-value" id="eq-you">$2,425</span>
+          <span class="eq-label">You</span>
+        </span>
+        <span class="eq-op">+</span>
+        <span class="eq-part">
+          <span class="eq-value" id="eq-hometeam">$0</span>
+          <span class="eq-label">Home Team miles</span>
+        </span>
+        <span class="eq-op">=</span>
+        <span class="eq-part eq-total">
+          <span class="eq-value" id="eq-total">$2,425</span>
+          <span class="eq-label">to St. Jude</span>
+        </span>
+      </div>
       <div class="progress-numbers">
-        <span class="progress-raised">$2,425 <span>raised</span></span>
-        <span class="progress-goal">of $25,000 goal</span>
+        <span class="progress-goal" id="progress-goal">of $25,000 goal</span>
       </div>
       <div class="progress-track">
-        <div class="progress-fill" style="width: 9.7%;"></div>
+        <div class="progress-fill" id="progress-fill" style="width: 9.7%;"></div>
       </div>
+      <a class="button" href="http://fundraising.stjude.org/goto/Serven" style="margin-top: 20px; display: inline-block;">Donate to St. Jude</a>
     </section>
 
     <section class="avenues">
@@ -367,6 +463,13 @@
           <p class="blurb">It started with a deal: we run a half marathon together, we take on a cycling event together. That promise grew into something bigger — now we're all in for St. Jude.</p>
           <p class="members">Serven · Eunice · Dylan · Taylor</p>
           <a class="button small" href="http://fundraising.stjude.org/goto/Serven">Donate to St. Jude</a>
+        </div>
+        <div class="mile-tracker" id="mile-tracker" data-miles="0" data-rate="0.25">
+          <p class="mile-tracker-label">Every mile counts</p>
+          <div class="mile-tracker-numbers">
+            <span class="mile-tracker-miles" id="mile-tracker-miles"><span>0</span> miles</span>
+            <span class="mile-tracker-detail" id="mile-tracker-detail">Our training miles also matter. The Home Team is personally funding $0.25 for every mile we walk, run, and bike toward St. Jude.</span>
+          </div>
         </div>
       </div>
 
@@ -435,10 +538,11 @@
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="avenue pending">
-        + a third avenue is on the way — check back soon.
-      </div>
+    <section class="closing">
+      <p>Thank you for reading, for sharing, for showing up for these kids.<span class="tagline">For the kids.</span></p>
+      <p style="font-size: 15px; color: var(--muted); margin-top: 18px;">Want to get involved beyond a donation? Reach out to any of us — we'd love the help.</p>
     </section>
 
     <footer>
@@ -463,6 +567,42 @@
       target.style.borderRadius = '8px';
       target.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+  }
+
+  // Combine donation total + mile-funding into the top progress bar.
+  // To update: change data-donations on #progress-section and
+  // data-miles on #mile-tracker. Everything below recalculates automatically.
+  const progressSection = document.getElementById('progress-section');
+  const mileTracker = document.getElementById('mile-tracker');
+
+  const donations = parseFloat(progressSection.dataset.donations || '0');
+  const goal = parseFloat(progressSection.dataset.goal || '0');
+  const miles = parseFloat(mileTracker.dataset.miles || '0');
+  const rate = parseFloat(mileTracker.dataset.rate || '0');
+  const mileFunded = miles * rate;
+  const combinedTotal = donations + mileFunded;
+
+  const fmt = n => '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+
+  document.getElementById('eq-you').textContent = fmt(donations);
+  document.getElementById('eq-hometeam').textContent = fmt(mileFunded);
+  document.getElementById('eq-total').textContent = fmt(combinedTotal);
+  document.getElementById('progress-fill').style.width =
+    Math.min(100, (combinedTotal / goal) * 100) + '%';
+
+  document.getElementById('mile-tracker-miles').innerHTML =
+    '<span>' + miles.toLocaleString('en-US') + '</span> miles';
+
+  const detailEl = document.getElementById('mile-tracker-detail');
+  if (miles > 0) {
+    detailEl.textContent =
+      'Our training miles also matter. The Home Team is personally funding $' + rate.toFixed(2) +
+      ' for every mile we walk, run, and bike — ' + fmt(mileFunded) +
+      ' funded so far, already counted in the total above.';
+  } else {
+    detailEl.textContent =
+      'Our training miles also matter. The Home Team is personally funding $' + rate.toFixed(2) +
+      ' for every mile we walk, run, and bike toward St. Jude.';
   }
 </script>
 
