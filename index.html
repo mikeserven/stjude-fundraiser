@@ -379,6 +379,11 @@
     font-size: 28px;
     color: var(--steel-mid);
   }
+  .eq-group {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
   .eq-total .eq-value { color: var(--accent); font-size: 42px; }
 
   .mile-tracker {
@@ -466,15 +471,19 @@
           <span class="eq-value" id="eq-you">$2,425</span>
           <span class="eq-label">From donors</span>
         </span>
-        <span class="eq-op">+</span>
-        <span class="eq-part">
-          <span class="eq-value" id="eq-hometeam">$0</span>
-          <span class="eq-label">From our miles</span>
+        <span class="eq-group">
+          <span class="eq-op">+</span>
+          <span class="eq-part">
+            <span class="eq-value" id="eq-hometeam">$0</span>
+            <span class="eq-label">From our miles</span>
+          </span>
         </span>
-        <span class="eq-op">=</span>
-        <span class="eq-part eq-total">
-          <span class="eq-value" id="eq-total">$2,425</span>
-          <span class="eq-label">to St. Jude</span>
+        <span class="eq-group">
+          <span class="eq-op">=</span>
+          <span class="eq-part eq-total">
+            <span class="eq-value" id="eq-total">$2,425</span>
+            <span class="eq-label">to St. Jude</span>
+          </span>
         </span>
       </div>
       <div class="progress-numbers">
