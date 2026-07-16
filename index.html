@@ -124,8 +124,8 @@
   }
   .photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
 
-  .avenue.large-photo { grid-template-columns: 260px 1fr; }
-  .avenue.large-photo .photo { width: 260px; height: 260px; }
+  .avenue.large-photo { grid-template-columns: 340px 1fr; }
+  .avenue.large-photo .photo { width: 340px; height: auto; aspect-ratio: 2 / 1; }
 
   .avenue.portrait-photo { grid-template-columns: 200px 1fr; }
   .avenue.portrait-photo .photo {
@@ -306,7 +306,7 @@
   @media (max-width: 520px) {
     .avenue, .avenue.large-photo { grid-template-columns: 1fr; }
     .photo { width: 100%; height: 160px; }
-    .avenue.large-photo .photo { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+    .avenue.large-photo .photo { width: 100%; height: auto; aspect-ratio: 2 / 1; }
     .avenue.portrait-photo { grid-template-columns: 1fr; }
     .avenue.portrait-photo .photo { width: 100%; height: auto; aspect-ratio: 1024 / 1536; }
     .avenue-graphics-row { flex-direction: column; }
