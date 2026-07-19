@@ -436,6 +436,45 @@
     height: auto;
   }
 
+  .mobile-total-block { display: none; }
+  .mobile-only-facts { display: none; }
+
+  @media (max-width: 520px) {
+    .desktop-only-total, .desktop-only-facts { display: none; }
+    .mobile-only-facts {
+      display: block;
+      margin-top: 20px;
+      margin-left: 0;
+      padding-left: 0;
+      border-left: none;
+      align-self: auto;
+    }
+    .mobile-total-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      margin-top: 14px;
+    }
+    .mobile-total-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      color: var(--steel-mid);
+      letter-spacing: 0.02em;
+      margin-bottom: 4px;
+    }
+    .mobile-total-block .eq-value {
+      color: var(--accent);
+      font-size: 44px;
+      -webkit-text-stroke: 0.6px var(--accent);
+      text-stroke: 0.6px var(--accent);
+    }
+    .mobile-total-block .eq-label { margin-top: 6px; }
+    .mobile-total-block .for-the-kids-row { justify-content: center; margin-top: 6px; }
+    .mobile-only-facts p { max-width: none; }
+  }
+
   .mile-tracker {
     grid-column: 1 / -1;
     margin-top: 18px;
@@ -536,7 +575,7 @@
             <span class="eq-label">Home Team<br>Miles</span>
           </span>
         </span>
-        <span class="eq-group">
+        <span class="eq-group desktop-only-total">
           <span class="eq-op">=</span>
           <span class="eq-part eq-total">
             <span class="eq-value" id="eq-total">$4,828</span>
@@ -547,10 +586,19 @@
             </span>
           </span>
         </span>
-        <div class="impact-facts">
+        <div class="impact-facts desktop-only-facts">
           <p>No family ever gets a bill</p>
           <p>20% &rarr; 80%+ survival rate since 1962</p>
           <p>Every discovery shared, free, worldwide</p>
+        </div>
+        <div class="mobile-total-block">
+          <span class="mobile-total-label">TOTAL =</span>
+          <span class="eq-value" id="eq-total-mobile">$4,828</span>
+          <span class="eq-label">Total To St. Jude</span>
+          <span class="for-the-kids-row">
+            <span class="for-the-kids-caption">For the kids</span>
+            <img src="stjude-icon-only.png" alt="St. Jude Children's Research Hospital" class="for-the-kids-icon">
+          </span>
         </div>
       </div>
       <div class="progress-numbers">
@@ -561,6 +609,11 @@
       </div>
       <p style="font-size: 12px; color: var(--muted); margin-top: 8px;">Mile- and challenge-funded amounts are sent to St. Jude periodically and may not yet be reflected in their official total.</p>
       <a class="button" href="http://fundraising.stjude.org/goto/Serven" target="_blank" rel="noopener noreferrer" style="margin-top: 20px; display: inline-block;">Donate to St. Jude</a>
+      <div class="impact-facts mobile-only-facts">
+        <p>No family ever gets a bill</p>
+        <p>20% &rarr; 80%+ survival rate since 1962</p>
+        <p>Every discovery shared, free, worldwide</p>
+      </div>
       <p style="font-size: 13px; color: var(--muted); margin-top: 10px;">Ask your employer if they match charitable donations — you could double your impact.</p>
     </section>
 
@@ -735,6 +788,7 @@
   document.getElementById('eq-hometeam').textContent = fmt(mileFunded);
   document.getElementById('eq-reapers').textContent = fmt(reapersFunded);
   document.getElementById('eq-total').textContent = fmt(combinedTotal);
+  document.getElementById('eq-total-mobile').textContent = fmt(combinedTotal);
   document.getElementById('progress-fill').style.width =
     Math.min(100, (combinedTotal / goal) * 100) + '%';
 
