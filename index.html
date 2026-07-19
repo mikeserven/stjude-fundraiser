@@ -393,15 +393,6 @@
   }
   .eq-total .eq-value { color: var(--accent); font-size: 40px; -webkit-text-stroke: 0.6px var(--accent); text-stroke: 0.6px var(--accent); }
 
-  .for-the-kids-caption {
-    display: block;
-    color: var(--accent);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 15px;
-    letter-spacing: 0.02em;
-    margin-top: 4px;
-  }
-
   .impact-facts {
     margin-left: 24px;
     align-self: center;
@@ -416,11 +407,21 @@
     max-width: 20ch;
     line-height: 1.3;
   }
-  .impact-facts-logo {
-    display: block;
-    width: 58px;
+  .for-the-kids-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .for-the-kids-caption {
+    color: var(--accent);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+  }
+  .for-the-kids-icon {
+    width: 18px;
     height: auto;
-    margin-top: 8px;
   }
 
   .mile-tracker {
@@ -528,14 +529,16 @@
           <span class="eq-part eq-total">
             <span class="eq-value" id="eq-total">$4,828</span>
             <span class="eq-label">Total To<br>St. Jude</span>
-            <span class="for-the-kids-caption">For the kids</span>
+            <span class="for-the-kids-row">
+              <span class="for-the-kids-caption">For the kids</span>
+              <img src="stjude-icon-only.png" alt="St. Jude Children's Research Hospital" class="for-the-kids-icon">
+            </span>
           </span>
         </span>
         <div class="impact-facts">
-          <p>No family ever gets a bill.</p>
-          <p>20% &rarr; 80%+ survival rate since 1962.</p>
-          <p>Every discovery shared, free, worldwide.</p>
-          <img src="stjude-icon-only.png" alt="St. Jude Children's Research Hospital" class="impact-facts-logo">
+          <p>No family ever gets a bill</p>
+          <p>20% &rarr; 80%+ survival rate since 1962</p>
+          <p>Every discovery shared, free, worldwide</p>
         </div>
       </div>
       <div class="progress-numbers">
