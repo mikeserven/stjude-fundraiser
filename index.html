@@ -457,12 +457,17 @@
       width: 100%;
       margin-top: 14px;
     }
+    .mobile-total-line {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      justify-content: center;
+    }
     .mobile-total-label {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 20px;
       color: var(--steel-mid);
       letter-spacing: 0.02em;
-      margin-bottom: 4px;
     }
     .mobile-total-block .eq-value {
       color: var(--accent);
@@ -473,6 +478,30 @@
     .mobile-total-block .eq-label { margin-top: 6px; }
     .mobile-total-block .for-the-kids-row { justify-content: center; margin-top: 6px; }
     .mobile-only-facts p { max-width: none; }
+
+    .button-facts-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .button-facts-row .button {
+      margin-top: 0;
+      padding: 10px 18px;
+      font-size: 14px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .button-facts-row .impact-facts.mobile-only-facts {
+      margin-top: 0;
+      flex-shrink: 1;
+      min-width: 0;
+    }
+    .button-facts-row .impact-facts p {
+      font-size: 10px;
+      line-height: 1.25;
+      margin: 0 0 4px;
+    }
   }
 
   .mile-tracker {
@@ -592,8 +621,10 @@
           <p>Every discovery shared, free, worldwide</p>
         </div>
         <div class="mobile-total-block">
-          <span class="mobile-total-label">TOTAL =</span>
-          <span class="eq-value" id="eq-total-mobile">$4,828</span>
+          <span class="mobile-total-line">
+            <span class="mobile-total-label">TOTAL =</span>
+            <span class="eq-value" id="eq-total-mobile">$4,828</span>
+          </span>
           <span class="eq-label">Total To St. Jude</span>
           <span class="for-the-kids-row">
             <span class="for-the-kids-caption">For the kids</span>
@@ -608,11 +639,13 @@
         <div class="progress-fill" id="progress-fill" style="width: 9.7%;"></div>
       </div>
       <p style="font-size: 12px; color: var(--muted); margin-top: 8px;">Mile- and challenge-funded amounts are sent to St. Jude periodically and may not yet be reflected in their official total.</p>
-      <a class="button" href="http://fundraising.stjude.org/goto/Serven" target="_blank" rel="noopener noreferrer" style="margin-top: 20px; display: inline-block;">Donate to St. Jude</a>
-      <div class="impact-facts mobile-only-facts">
-        <p>No family ever gets a bill</p>
-        <p>20% &rarr; 80%+ survival rate since 1962</p>
-        <p>Every discovery shared, free, worldwide</p>
+      <div class="button-facts-row">
+        <a class="button" href="http://fundraising.stjude.org/goto/Serven" target="_blank" rel="noopener noreferrer" style="margin-top: 20px; display: inline-block;">Donate to St. Jude</a>
+        <div class="impact-facts mobile-only-facts">
+          <p>No family ever gets a bill</p>
+          <p>20% &rarr; 80%+ survival rate since 1962</p>
+          <p>Every discovery shared, free, worldwide</p>
+        </div>
       </div>
       <p style="font-size: 13px; color: var(--muted); margin-top: 10px;">Ask your employer if they match charitable donations — you could double your impact.</p>
     </section>
