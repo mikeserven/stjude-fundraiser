@@ -359,8 +359,8 @@
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
-    gap: 10px 14px;
-    margin-bottom: 14px;
+    gap: 16px 26px;
+    margin-bottom: 20px;
   }
   .eq-part { display: flex; flex-direction: column; }
   .eq-value {
@@ -375,7 +375,8 @@
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-top: 3px;
+    margin-top: 8px;
+    line-height: 1.4;
   }
   .eq-op {
     font-family: 'Bebas Neue', sans-serif;
@@ -385,7 +386,7 @@
   .eq-group {
     display: flex;
     align-items: baseline;
-    gap: 14px;
+    gap: 20px;
   }
   .eq-total .eq-value { color: var(--accent); font-size: 30px; }
 
@@ -469,24 +470,31 @@
       <p class="sub">This January, a half marathon. All season, a hockey team. Every mile logged. Same cause: St. Jude — for kids who need St. Jude the most.</p>
     </header>
 
-    <section class="progress-section" id="progress-section" data-donations="4795" data-goal="25000">
+    <section class="progress-section" id="progress-section" data-donations="1620" data-goal="25000" data-reapers="0">
       <div class="equation-row" id="equation-row">
         <span class="eq-part">
-          <span class="eq-value" id="eq-you">$4,795</span>
-          <span class="eq-label">From donors</span>
+          <span class="eq-value" id="eq-reapers">$3,175</span>
+          <span class="eq-label">Reapers<br>Hockey</span>
+        </span>
+        <span class="eq-group">
+          <span class="eq-op">+</span>
+          <span class="eq-part">
+            <span class="eq-value" id="eq-you">$1,620</span>
+            <span class="eq-label">General<br>Donations</span>
+          </span>
         </span>
         <span class="eq-group">
           <span class="eq-op">+</span>
           <span class="eq-part">
             <span class="eq-value" id="eq-hometeam">$0</span>
-            <span class="eq-label">From our miles</span>
+            <span class="eq-label">Home Team<br>Miles</span>
           </span>
         </span>
         <span class="eq-group">
           <span class="eq-op">=</span>
           <span class="eq-part eq-total">
             <span class="eq-value" id="eq-total">$4,828</span>
-            <span class="eq-label">to St. Jude</span>
+            <span class="eq-label">Total To<br>St. Jude</span>
           </span>
         </span>
       </div>
@@ -496,7 +504,7 @@
       <div class="progress-track">
         <div class="progress-fill" id="progress-fill" style="width: 9.7%;"></div>
       </div>
-      <p style="font-size: 12px; color: var(--muted); margin-top: 8px;">Mile-funded amounts are sent to St. Jude periodically and may not yet be reflected in their official total.</p>
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px;">Mile- and challenge-funded amounts are sent to St. Jude periodically and may not yet be reflected in their official total.</p>
       <a class="button" href="http://fundraising.stjude.org/goto/Serven" target="_blank" rel="noopener noreferrer" style="margin-top: 20px; display: inline-block;">Donate to St. Jude</a>
       <p style="font-size: 13px; color: var(--muted); margin-top: 10px;">Ask your employer if they match charitable donations — you could double your impact.</p>
     </section>
@@ -513,9 +521,15 @@
         </div>
         <div>
           <h2><span class="jersey-tag">RH</span> Reapers Hockey</h2>
-          <p class="blurb">A team named after death raising money to fight it. This season, the Reapers' team fee goes straight to St. Jude instead of the usual costs. Creative in-game fundraising (penalties, goals, and a few inside jokes) keeps the mission alive all year. The Reaper stands for cancer — and these kids are slaying it.</p>
+          <p class="blurb">A team named after death raising money to fight it. This season, the Reapers' team fee goes straight to St. Jude. Creative in-game fundraising (penalties, goals, and a few inside jokes) keeps the mission alive all year. The Reaper stands for cancer — and these kids are slaying it.</p>
           <p class="members">Reapers adult league ice hockey team · AZ Ice Gilbert</p>
           <a class="button small" href="http://fundraising.stjude.org/goto/Serven" target="_blank" rel="noopener noreferrer">Donate to St. Jude</a>
+        </div>
+        <div class="mile-tracker" id="reapers-tracker" data-reapers-total="3175">
+          <p class="mile-tracker-label">Reapers total</p>
+          <div class="mile-tracker-numbers">
+            <span class="mile-tracker-detail" id="reapers-tracker-detail">Team league fees and in-season Giving Back Challenge triggers, funded straight to St. Jude — $3,175 so far this season, already counted in the total above.</span>
+          </div>
         </div>
         <div class="avenue-graphics-row">
           <div class="avenue-extra-graphic">
@@ -645,23 +659,26 @@
     }
   }
 
-  // Combine donation total + mile-funding into the top progress bar.
-  // To update: change data-donations on #progress-section and
-  // data-miles on #mile-tracker. Everything below recalculates automatically.
+  // Combine donation total + mile-funding + Reapers challenge-funding into the top progress bar.
+  // To update: change data-donations on #progress-section, data-miles on #mile-tracker,
+  // and data-reapers-total on #reapers-tracker. Everything below recalculates automatically.
   const progressSection = document.getElementById('progress-section');
   const mileTracker = document.getElementById('mile-tracker');
+  const reapersTracker = document.getElementById('reapers-tracker');
 
   const donations = parseFloat(progressSection.dataset.donations || '0');
   const goal = parseFloat(progressSection.dataset.goal || '0');
   const miles = parseFloat(mileTracker.dataset.miles || '0');
   const rate = parseFloat(mileTracker.dataset.rate || '0');
   const mileFunded = miles * rate;
-  const combinedTotal = donations + mileFunded;
+  const reapersFunded = parseFloat(reapersTracker.dataset.reapersTotal || '0');
+  const combinedTotal = donations + mileFunded + reapersFunded;
 
   const fmt = n => '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
 
   document.getElementById('eq-you').textContent = fmt(donations);
   document.getElementById('eq-hometeam').textContent = fmt(mileFunded);
+  document.getElementById('eq-reapers').textContent = fmt(reapersFunded);
   document.getElementById('eq-total').textContent = fmt(combinedTotal);
   document.getElementById('progress-fill').style.width =
     Math.min(100, (combinedTotal / goal) * 100) + '%';
@@ -679,6 +696,16 @@
     detailEl.textContent =
       'Our training miles also matter. The Home Team is personally funding $' + rate.toFixed(2) +
       ' for every mile we walk, run, and bike toward St. Jude.';
+  }
+
+  const reapersDetailEl = document.getElementById('reapers-tracker-detail');
+  if (reapersFunded > 0) {
+    reapersDetailEl.textContent =
+      'Team league fees and in-season Giving Back Challenge triggers, funded straight to St. Jude — ' +
+      fmt(reapersFunded) + ' so far this season, already counted in the total above.';
+  } else {
+    reapersDetailEl.textContent =
+      'Team league fees and in-season Giving Back Challenge triggers, funded straight to St. Jude.';
   }
 </script>
 
