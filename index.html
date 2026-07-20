@@ -109,6 +109,13 @@
   }
   .avenue:last-child { border-bottom: none; }
 
+  .hockey-heading-wrap { order: 1; grid-column: 1 / -1; }
+  .hockey-photo { order: 2; grid-column: 1 / -1; }
+  .hockey-eyebrow-wrap { order: 3; }
+  .hockey-content-wrap { order: 4; grid-column: 1 / -1; }
+  #reapers-tracker { order: 5; }
+  #hockey .avenue-graphics-row { order: 6; }
+
   .photo {
     width: 120px;
     height: 120px;
@@ -225,7 +232,7 @@
     letter-spacing: 0.02em;
     background: var(--steel);
     color: #fff;
-    border-radius: 6px;
+    border-radius: 999px;
     width: 40px;
     height: 40px;
     font-size: 16px;
@@ -634,7 +641,6 @@
             <span class="mobile-total-label">TOTAL =</span>
             <span class="eq-value" id="eq-total-mobile">$4,828</span>
           </span>
-          <span class="eq-label">Total To St. Jude</span>
           <span class="for-the-kids-row">
             <span class="for-the-kids-caption">For the kids</span>
             <img src="stjude-icon-only.png" alt="St. Jude Children's Research Hospital" class="for-the-kids-icon">
@@ -660,17 +666,19 @@
     </section>
 
     <section class="avenues">
-      <p class="section-label">Who's raising funds</p>
+      <p class="section-label mobile-hide-label">Who's raising funds</p>
 
       <div class="avenue" id="hockey" data-ref="hockey">
-        <div style="grid-column: 1 / -1;">
+        <div class="hockey-eyebrow-wrap" style="grid-column: 1 / -1;">
           <p class="eyebrow" style="margin-bottom: 8px;">Time to Reap for a Reason</p>
         </div>
-        <div class="photo">
+        <div class="hockey-heading-wrap">
+          <h2><span class="jersey-tag">RH</span> Reapers Hockey</h2>
+        </div>
+        <div class="photo hockey-photo">
           Photo coming soon
         </div>
-        <div>
-          <h2><span class="jersey-tag">RH</span> Reapers Hockey</h2>
+        <div class="hockey-content-wrap">
           <p class="blurb">A team named after death raising money to fight it. This season, the Reapers' team fee goes straight to St. Jude. Creative in-game fundraising (penalties, goals, and a few inside jokes) keeps the mission alive all year. The Reaper stands for cancer — and these kids are slaying it.</p>
           <p class="members">Reapers adult league ice hockey team · AZ Ice Gilbert</p>
           <a class="button small" href="http://fundraising.stjude.org/goto/Serven" target="_blank" rel="noopener noreferrer">Donate to St. Jude</a>
