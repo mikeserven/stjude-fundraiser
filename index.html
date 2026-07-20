@@ -465,7 +465,7 @@
     }
     .mobile-total-label {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 20px;
+      font-size: 30px;
       color: var(--steel-mid);
       letter-spacing: 0.02em;
     }
@@ -478,15 +478,16 @@
     .mobile-total-block .eq-label { margin-top: 6px; }
     .mobile-total-block .for-the-kids-row { justify-content: center; margin-top: 6px; }
     .mobile-only-facts p { max-width: none; }
+    .mobile-hide-label { display: none; }
 
     .button-facts-row {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 14px;
       margin-top: 20px;
     }
     .button-facts-row .button {
-      margin-top: 0;
+      margin-top: 0 !important;
       padding: 10px 18px;
       font-size: 14px;
       white-space: nowrap;
@@ -667,7 +668,7 @@
           <a class="button small" href="http://fundraising.stjude.org/goto/Serven" target="_blank" rel="noopener noreferrer">Donate to St. Jude</a>
         </div>
         <div class="mile-tracker" id="reapers-tracker" data-reapers-total="3175">
-          <p class="mile-tracker-label">Reapers total</p>
+          <p class="mile-tracker-label mobile-hide-label">Reapers total</p>
           <div class="mile-tracker-numbers">
             <span class="mile-tracker-detail" id="reapers-tracker-detail">Team league fees and in-season Giving Back Challenge triggers, funded straight to St. Jude — $3,175 so far this season, already counted in the total above.</span>
           </div>
@@ -727,7 +728,7 @@
 
       <div class="avenue large-photo" id="family" data-ref="family">
         <div style="grid-column: 1 / -1;">
-          <p class="eyebrow" style="margin-bottom: 8px;">Rock 'n' Roll Arizona Half Marathon · Jan 17, 2027</p>
+          <p class="eyebrow" style="margin-bottom: 8px;">Rock 'n' Roll Arizona Half Marathon · <span style="white-space: nowrap;">Jan 17, 2027</span></p>
         </div>
         <div class="photo">
           <img src="home-team-collage.jpg" alt="Serven, Eunice, Dylan, and Taylor">
