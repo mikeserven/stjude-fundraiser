@@ -88,6 +88,7 @@
     max-width: 56ch;
     margin: 0;
   }
+  .sub-line { display: block; }
 
   .avenues { padding: 48px 0; }
   .section-label {
@@ -319,6 +320,7 @@
     header.hero { padding: 40px 0 28px; }
     .avenues { padding: 32px 0; }
     .hero p.sub { font-size: 16px; }
+    .sub-line { display: inline; }
     .cta a.button { width: 100%; }
     .avenue .button.small { width: 100%; text-align: center; box-sizing: border-box; }
   }
@@ -503,6 +505,12 @@
       line-height: 1.25;
       margin: 0 0 4px;
     }
+    .desktop-only-disclosure { display: none; }
+  }
+
+  .mobile-only-disclosure { display: none; }
+  @media (max-width: 520px) {
+    .mobile-only-disclosure { display: block; }
   }
 
   .mile-tracker {
@@ -582,7 +590,7 @@
     <img class="mobile-hero-thumb" src="og-image.jpg" alt="We skate. We bike. We run. You donate. For the kids.">
     <header class="hero">
       <h1>Raising Money for <span style="color: var(--accent); white-space: nowrap;">St. Jude</span></h1>
-      <p class="sub">This January, a half marathon. All season, a hockey team. Every mile logged. One cause — for the kids who need it most.</p>
+      <p class="sub"><span class="sub-line">All season, a hockey team.</span> <span class="sub-line">Every mile logged.</span> <span class="sub-line">January 2027, a half marathon.</span> <span class="sub-line">One cause — for the kids who need it most.</span></p>
     </header>
 
     <section class="progress-section" id="progress-section" data-donations="1620" data-goal="25000" data-reapers="0">
@@ -639,7 +647,7 @@
       <div class="progress-track">
         <div class="progress-fill" id="progress-fill" style="width: 9.7%;"></div>
       </div>
-      <p style="font-size: 12px; color: var(--muted); margin-top: 8px;">Mile- and challenge-funded amounts are sent to St. Jude periodically and may not yet be reflected in their official total.</p>
+      <p class="desktop-only-disclosure" style="font-size: 12px; color: var(--muted); margin-top: 8px;">Mile- and challenge-funded amounts are sent to St. Jude periodically and may not yet be reflected in their official total.</p>
       <div class="button-facts-row">
         <a class="button" href="http://fundraising.stjude.org/goto/Serven" target="_blank" rel="noopener noreferrer" style="margin-top: 20px; display: inline-block;">Donate to St. Jude</a>
         <div class="impact-facts mobile-only-facts">
@@ -775,6 +783,7 @@
     <section class="closing">
       <p>Thank you for reading, for sharing, for showing up for these kids.<span class="tagline">For the kids.</span></p>
       <p style="font-size: 15px; color: var(--muted); margin-top: 18px;">Want to get involved beyond a donation? Reach out to any of us — we'd love the help.</p>
+      <p class="mobile-only-disclosure" style="font-size: 11px; color: var(--muted); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line);">Mile- and challenge-funded amounts are sent to St. Jude periodically and may not yet be reflected in their official total.</p>
     </section>
 
     <footer>
